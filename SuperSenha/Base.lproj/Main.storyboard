@@ -23,7 +23,7 @@
                                 <color key="highlightedColor" red="0.59607843137254901" green="0.14117647058823529" blue="0.396078431372549" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vbc-hz-dPE">
-                                <rect key="frame" x="298" y="158.66666666666666" width="80" height="34"/>
+                                <rect key="frame" x="298" y="159" width="80" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="8JM-N0-uK0"/>
                                 </constraints>
@@ -51,7 +51,7 @@
                                 <color key="highlightedColor" red="0.59607843140000005" green="0.14117647059999999" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nzo-zc-acY">
-                                <rect key="frame" x="329" y="241.66666666666663" width="51" height="31"/>
+                                <rect key="frame" x="329" y="242" width="51" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="49" id="vjN-kz-eWz"/>
                                 </constraints>
@@ -79,7 +79,7 @@
                                 <color key="highlightedColor" red="0.59607843140000005" green="0.14117647059999999" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Ui-Od-8jT">
-                                <rect key="frame" x="329" y="319" width="51" height="31"/>
+                                <rect key="frame" x="329" y="319.33333333333331" width="51" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="49" id="MJK-LA-Dlt"/>
                                 </constraints>
@@ -93,7 +93,7 @@
                                 <color key="highlightedColor" red="0.59607843140000005" green="0.14117647059999999" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bye-0q-sao">
-                                <rect key="frame" x="329" y="357.66666666666669" width="51" height="31"/>
+                                <rect key="frame" x="329" y="358" width="51" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="49" id="ND1-hF-5cd"/>
                                 </constraints>
@@ -101,7 +101,7 @@
                                 <color key="thumbTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XtT-aJ-jIj">
-                                <rect key="frame" x="24" y="412.66666666666669" width="380" height="44"/>
+                                <rect key="frame" x="24" y="413" width="380" height="44"/>
                                 <color key="backgroundColor" red="0.59607843140000005" green="0.14117647059999999" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="D6A-KM-Jh5"/>
@@ -111,6 +111,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
+                                    <action selector="generatePasswords:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lex-7w-Yb5"/>
                                     <segue destination="bcb-wD-xwd" kind="show" id="HHI-OI-2Hp"/>
                                 </connections>
                             </button>
@@ -165,6 +166,14 @@
                     <navigationItem key="navigationItem" title="Gerador de Senhas" id="EVt-1i-qQ1">
                         <barButtonItem key="backBarButtonItem" title=" " id="rKD-1F-2es"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="swCapitalLetters" destination="UGF-lX-WOK" id="aCh-PJ-GWz"/>
+                        <outlet property="swLetters" destination="Nzo-zc-acY" id="wyT-bk-YW8"/>
+                        <outlet property="swNumbers" destination="4Ui-Od-8jT" id="Tve-wq-kPF"/>
+                        <outlet property="swSpecialCharacters" destination="Bye-0q-sao" id="nIG-NS-vt4"/>
+                        <outlet property="tfNumberOfCharacters" destination="9h8-gQ-hx4" id="h7y-4D-ei1"/>
+                        <outlet property="tfTotalPasswords" destination="Vbc-hz-dPE" id="CDC-dt-Z4f"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -191,7 +200,7 @@
         <!--Lista de Senhas-->
         <scene sceneID="3vs-TK-aat">
             <objects>
-                <viewController id="bcb-wD-xwd" sceneMemberID="viewController">
+                <viewController id="bcb-wD-xwd" customClass="PasswordsViewController" customModule="SuperSenha" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WXB-Oy-s2k">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -217,6 +226,9 @@
                                 <state key="normal" title="Gerar Novamente">
                                     <color key="titleColor" red="0.59607843140000005" green="0.14117647059999999" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="btGenerateAgain:" destination="bcb-wD-xwd" eventType="touchUpInside" id="Rv3-Mf-BRn"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZSy-6c-lCa">
                                 <rect key="frame" x="16" y="162" width="396" height="598"/>
@@ -244,15 +256,18 @@
                     <navigationItem key="navigationItem" title="Lista de Senhas" id="qP0-s0-i1k">
                         <barButtonItem key="backBarButtonItem" title=" " id="jly-8D-cJC"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tvPasswords" destination="ZSy-6c-lCa" id="ivE-gE-BDo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t7j-ll-8N3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1628.9719626168223" y="92.656587473002162"/>
         </scene>
-        <!--View Controller-->
+        <!--Security Tips View Controller-->
         <scene sceneID="fTu-qV-Qoz">
             <objects>
-                <viewController id="Y7H-QC-Xmu" sceneMemberID="viewController">
+                <viewController id="Y7H-QC-Xmu" customClass="SecurityTipsViewController" customModule="SuperSenha" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qbc-cC-y1C">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -269,6 +284,9 @@
                                 <state key="normal" title="Fechar">
                                     <color key="titleColor" red="0.89803921568627454" green="0.70588235294117641" blue="0.89411764705882346" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="btClose:" destination="Y7H-QC-Xmu" eventType="touchUpInside" id="boi-no-Ddr"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KqD-hX-yTq">
                                 <rect key="frame" x="33" y="192" width="362" height="626"/>
